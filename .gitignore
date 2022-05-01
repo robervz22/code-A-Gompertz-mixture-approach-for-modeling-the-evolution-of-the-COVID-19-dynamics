@@ -1,0 +1,10 @@
+# Ignorar archivos que incluyen información sobre el Rt
+
+Data/Rt_Input/delayOficial_sintomas_200710.csv
+Data/Rt_Input/R0.csv
+Data/Main Data/alpha_rt_estados_220216.csv
+Data/Main Data/delta_rt_estados_220216.csv
+Data/Main Data/omicron_rt_estados_220216.csv
+.ipynb_checkpoints/
+Library/__pycache__
+Library/.ipynb_checkpoints

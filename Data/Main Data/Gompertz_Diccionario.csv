@@ -1,0 +1,28 @@
+COLUMNA;DESCRIPCIÓN
+Estado;Nombre del estado
+Fecha;Fechas de la serie para cada estado, desde el primer caso hasta 3 días de predicción
+CasosAcumulados;Casos acumulados por día para el estado
+Gompertz;Valores de la Gompertz ajustada, incluyendo 3 días de predicción
+Gompertz_IC99_inf;Límite inferior del intervalo de confianza de la predicción Gompertz, solo para los tres días de predicción
+Gompertz_IC99_inf;Límite superior del intervalo de confianza de la predicción Gompertz, solo para los tres días de predicción
+PrediccionTotal;Predicción de casos acumulados al final de la epidemia
+PrediccionTotal_IC99_inf;Límite interior del intervalo de confianza de la predicción total
+PrediccionTotal_IC99_sup;Límite superior del intervalo de confianza de la predicción total
+DondeVa;Indicador del porcentaje de avance de la curva 
+Fecha_Pico;Fecha en que se estima ocurra el pico de la epidemia
+Casos_Acum_al_Pico;Casos acumulados hasta la fecha del pico
+Casos_Entre_1_Sem_antes_y_el_Pico;Casos acumulados entre la fecha del pico y una semana antes
+Fecha_Terminacion_Epidemia;Fecha en que se estima termine la epidemia (95% del máximo total)
+Casos_Por_Millon;Casos por millón de habitantes en la fecha del reporte
+Casos_Acum_01_Junio;Casos acumulados estimados al 1 de junio
+;
+COLUMNA_DERIVADA;DESCRIPCIÓN
+NumeroDia;Número de día desde el caso 1 (eje x de la serie)
+Estado;Nombre del estado
+DerivadaGompertz;Valor de la derivada de Gompertz para cada día (Línea azul)
+Dia_Pico;Número de día en que ocurre el pico de la epidemia (Se repite en todas las filas)
+Casos_Pico;Número de casos que ocurren en el día de pico de la epidemia (Se repite en todas las filas)
+Dia_Fin;Número de día en que ocurre el fin de la epidemia (Se repite en todas las filas)
+Casos_Fin;Número de casos que ocurren en el día de fin de la epidemia (Se repite en todas las filas)
+Dia_1Jun;Número de día en que ocurre el 01 de junio (Se repite en todas las filas)
+Simulacion_N (N=[1,100]);Valores de la derivada de Gompertz para la simulación N (Líneas rojas)
