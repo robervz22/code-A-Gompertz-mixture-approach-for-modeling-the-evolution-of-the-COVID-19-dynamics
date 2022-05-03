@@ -720,7 +720,7 @@ def proof_levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0,date):
         zk=dic_results['zk']
         Rk=R(zk,paramf,P,Y0)
         norm_pk=dic_results['|pk|']
-        print('El algoritmo de Levenberg-Marquardt NO CONVERGE')
+        print('Levenberg-Marquardt algorithm NO CONVERGED')
         print('z0 = ',z0)
         R0=R(z0,paramf,P,Y0)
         f0=0.5*R0.T@R0
@@ -753,10 +753,10 @@ def proof_levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0,date):
         y_model=(Y0-P/zk)*x
         plt.style.use('seaborn')
         plt.plot_date(date,y,'k-',label='observed')
-        plt.plot_date(date,y_model,'g-',label='LM-estimation')
+        plt.plot_date(date,y_model,'g-',label='mean')
         plt.gcf().autofmt_xdate()
         plt.gca().xaxis.set_major_formatter(date_format)
-        plt.title('LM Adjusted with Poisson mean functions')
+        plt.title('Poisson mean for daily infected')
         plt.ylabel('infected')
         plt.xlabel('date')
         plt.legend()

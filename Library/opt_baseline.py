@@ -361,6 +361,36 @@ class mgomp:
             aux=quad(cs_hazard_general,t[j-1],t[j])
             cum_hazard[j]=cum_hazard[j-1]+aux[0]
         return cum_hazard, hazard_general
+    # Growth function accelerated model
+    def hazard_acc(self,t,rt,beta):
+        sf=self.sf(t)
+        sf_general=sf[0]
+        sf_comp=sf[1]
+        self.weights=np.empty((self.G,len(t)))
+        for i in range(self.G):
+            self.weights[i]=(self.pi[i]*sf_comp[i])/(sf_general+0.001)
+        # Hazard per components
+        hazard_comp=np.zeros((self.G,len(t)))
+        for i in range(self.G):
+            if self.nboot==1:
+                gamma=self.est[i][0]
+                kappa=self.est[i][1]
+            else:
+                gamma=self.bar[i][0]
+                kappa=self.bar[i][1]
+            hazard_comp[i]=np.exp(gamma+beta*rt-kappa*t)
+        # Hazard mixture
+        hazard_general=np.empty(len(t))
+        hazard_general=np.sum(self.weights*hazard_comp,axis=0)
+        cs_hazard_general=CubicSpline(t,hazard_general)
+        # Hazard
+        cum_hazard=np.zeros(len(t))
+        aux=quad(cs_hazard_general,0.0,t[0])
+        cum_hazard[0]=aux[0]
+        for j in range(1,len(t)):
+            aux=quad(cs_hazard_general,t[j-1],t[j])
+            cum_hazard[j]=cum_hazard[j-1]+aux[0]
+        return cum_hazard, hazard_general
     # Density given time
     def density(self,t):
         sf=self.sf(t)
