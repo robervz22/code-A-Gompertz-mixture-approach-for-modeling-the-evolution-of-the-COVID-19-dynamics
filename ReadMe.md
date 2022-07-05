@@ -1,6 +1,7 @@
 # code-Gompertz-Mixture-Approach-for-modeling-COVID-19-dynamic-in-Mexico
 
 Library: It contain all Python modules that we used for all calculations
+
 -opt_baseline: Estimate Gompertz-Mixture model
 
 -opt_baseline_trun: Estimate Gompertz-Mixture model treating with a right truncation
