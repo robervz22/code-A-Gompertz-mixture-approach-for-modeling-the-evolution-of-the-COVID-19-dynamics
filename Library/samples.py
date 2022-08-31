@@ -154,7 +154,10 @@ class g_sample:
                     break
                 k = mt.floor((ext_inf+ext_sup)/2)
             day = k+1
-            self.time[i] = self.dias[day]
+            if day>=1:
+                self.time[i] = np.random.randint(self.dias[day-1],self.dias[day]+1)
+            else:
+                self.time[i]= self.dias[day]
     # Obtain the sample data file
     def main(self):
         self.searchDay()

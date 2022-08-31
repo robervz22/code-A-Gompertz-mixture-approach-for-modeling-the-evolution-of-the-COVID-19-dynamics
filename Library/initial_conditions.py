@@ -665,20 +665,20 @@ def cum_hazard_(days,hazard):
 '''
 NLLS for optimal number of susceptibles
 '''
-# Residual ejemplo 
+# Residual 
 def R(z,paramf,P,Y0):
     x,y=paramf.T
     value=(Y0-P/z)*x-y
     return value
 
-# Matriz Jacobiana ejemplo
+# Jacobian matrix
 def J(z,paramf,P):
     x,y=paramf.T
     jac=np.empty((len(x),1))
     jac[:,0]=(P/z**2)*x
     return jac
 
-# Levenberg-Marquart Mínimos Cuadrados No lineales
+# Levenberg-Marquart
 def levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0):
     res=0 # Si se queda en ese valor el algoritmo no converge
     zk,k=z0,0
@@ -713,7 +713,7 @@ def levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0):
     
     return {'zk':zk,'fk':fk_new,'k':k,'|pk|':np.linalg.norm(pk),'res':res}
 
-# Prueba del algoritmo de Levenberg-Marquart
+# Proof Levenberg-Marquart algorithm
 def proof_levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0,date):
     dic_results=levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0)
     if dic_results['res']==0:
@@ -745,7 +745,7 @@ def proof_levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0,date):
         print('|pk| = ',norm_pk)
         print('k = ',dic_results['k'])
         '''
-        Gráfica del ajuste obtenido
+        Plotting
         '''
         # Date format
         date_format = DateFormatter('%Y-%m-%d')
