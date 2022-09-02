@@ -761,4 +761,4 @@ def proof_levenberg_marquardt_nlls(R,J,z0,N,tol,mu_ref,paramf,P,Y0,date):
         plt.xlabel('date')
         plt.legend()
         plt.show()
-    return dic_results
+    return dic_results, y_model
